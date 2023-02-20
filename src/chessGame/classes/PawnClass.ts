@@ -5,14 +5,15 @@ import Queen from "./QueenClass";
 class Pawn extends Piece {
     isEnpassaint: boolean = false;
     isPromoted: boolean = false;
-    constructor (name: string, shortName: string, color: string, file: number, rank: number) {
-        super(name, shortName, color, file, rank);
+    constructor (name: string, shortName: string, color: string, imgPath: string, file: number, rank: number) {
+        super(name, shortName, color, imgPath, file, rank);
     }
     toObj() {
         return {
             name: this.name,
             shortName: this.shortName,
             color: this.color,
+            imgPath: this.imgPath,
             file: this.file,
             rank: this.rank,
             isSelected: this.isSelected,
@@ -43,10 +44,10 @@ class Pawn extends Piece {
         this.isTaken = true;
         let promotedPawn;
         if(this.color == "white") { //hard coding. i am not sure how to access to the properthy with variable. ["white"] and ["black"] should be variable like [color].
-            promotedPawn = new Queen("queen", `${this.color[0]}q${GameStatus["pieces"]["white"]["queen"].length + 1}`, this.color, this.file, this.rank);
+            promotedPawn = new Queen("queen", `${this.color[0]}q${GameStatus["pieces"]["white"]["queen"].length + 1}`, this.color, "../imgs/pieces/white/queen.png", this.file, this.rank);
             GameStatus["pieces"]["white"]["queen"].push(promotedPawn);
         } else {
-            promotedPawn = new Queen("queen", `${this.color[0]}q${GameStatus["pieces"]["black"]["queen"].length + 1}`, this.color, this.file, this.rank);
+            promotedPawn = new Queen("queen", `${this.color[0]}q${GameStatus["pieces"]["black"]["queen"].length + 1}`, this.color, "../imgs/pieces/black/queen.png", this.file, this.rank);
             GameStatus["pieces"]["black"]["queen"].push(promotedPawn);
         }
         GameStatus.board[this.rank][this.file] = promotedPawn;

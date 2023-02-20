@@ -27,11 +27,27 @@ table {
 
 tr {
     height: 6.25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 td {
+    position: relative;
     width: 6.25vh;
     height: 6.25vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+img {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    pointer-events: none;
+    width: 80%;
+    height: 80%;
 }
 
 

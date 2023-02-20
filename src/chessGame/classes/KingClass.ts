@@ -4,14 +4,15 @@ import { GameStatus } from "../GameStatus";
 class King extends Piece {
     canCastle: boolean = false;
     canMove: boolean = false;
-    constructor(name: string, shortName: string, color: string, file: number, rank: number) {
-        super(name, shortName, color, file, rank);
+    constructor(name: string, shortName: string, color: string, imgPath: string, file: number, rank: number) {
+        super(name, shortName, color, imgPath, file, rank);
     }
     toObj() {
         return {
             name: this.name,
             shortName: this.shortName,
             color: this.color,
+            imgPath: this.imgPath,
             file: this.file,
             rank: this.rank,
             isSelected: this.isSelected,

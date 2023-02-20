@@ -1,14 +1,15 @@
 import Piece from "./Common";
 
 class Knight extends Piece {
-    constructor(name: string, shortName: string, color: string, file: number, rank: number) {
-        super(name, shortName, color, file, rank);
+    constructor(name: string, shortName: string, color: string, imgPath: string, file: number, rank: number) {
+        super(name, shortName, color, imgPath, file, rank);
     }
     toObj() {
         return {
             name: this.name,
             shortName: this.shortName,
             color: this.color,
+            imgPath: this.imgPath,
             isSelected: this.isSelected,
             isChecked: this.isChecked,
             isMoved: this.isMoved,
