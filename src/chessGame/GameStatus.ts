@@ -1,4 +1,3 @@
-import Game from "../pages/Game";
 import { initialPieces } from "./InitialStatus";
 import { initialBoard } from "./InitialStatus";
 
@@ -9,6 +8,6 @@ export const GameStatus = {
     boardHistory: new Array(),
     availablePlaces: new Array(),
     isClicked: false,
-    isWhiteTurn: false,
+    isWhiteTurn: true,
     isEdit: false,
 }

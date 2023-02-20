@@ -22,11 +22,27 @@ class King extends Piece {
         }
     }
     place(rank: number, file: number) {
-        let availablePlaces = new Array();
-        availablePlaces.push({
-            rank: rank,
-            file: file
-        })
+        let availablePlaces = [file.toString() + rank.toString()];
+        if(this.color === "black") {
+            if (document.getElementById(String(file + 1) + String(rank + 1)) !== null && document.getElementById(String(file + 1) + String(rank + 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file + 1) + String(rank + 1))}
+            if (document.getElementById(String(file) + String(rank + 1)) !== null && document.getElementById(String(file) + String(rank + 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file) + String(rank + 1))}
+            if (document.getElementById(String(file - 1) + String(rank + 1)) !== null && document.getElementById(String(file - 1) + String(rank + 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file - 1) + String(rank + 1))}
+            if (document.getElementById(String(file - 1) + String(rank)) !== null && document.getElementById(String(file - 1) + String(rank))?.innerHTML[0] !== "b") {availablePlaces.push(String(file - 1) + String(rank))}
+            if (document.getElementById(String(file - 1) + String(rank - 1)) !== null && document.getElementById(String(file - 1) + String(rank - 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file - 1) + String(rank - 1))}
+            if (document.getElementById(String(file) + String(rank - 1)) !== null && document.getElementById(String(file) + String(rank - 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file) + String(rank - 1))}
+            if (document.getElementById(String(file + 1) + String(rank - 1)) !== null && document.getElementById(String(file + 1) + String(rank - 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file + 1) + String(rank - 1))}
+            if (document.getElementById(String(file + 1) + String(rank)) !== null && document.getElementById(String(file + 1) + String(rank))?.innerHTML[0] !== "b") {availablePlaces.push(String(file + 1) + String(rank))}
+    
+        } else {
+            if (document.getElementById(String(file + 1) + String(rank + 1)) !== null && document.getElementById(String(file + 1) + String(rank + 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file + 1) + String(rank + 1))}
+            if (document.getElementById(String(file) + String(rank + 1)) !== null && document.getElementById(String(file) + String(rank + 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file) + String(rank + 1))}
+            if (document.getElementById(String(file - 1) + String(rank + 1)) !== null && document.getElementById(String(file - 1) + String(rank + 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file - 1) + String(rank + 1))}
+            if (document.getElementById(String(file - 1) + String(rank)) !== null && document.getElementById(String(file - 1) + String(rank))?.innerHTML[0] !== "w") {availablePlaces.push(String(file - 1) + String(rank))}
+            if (document.getElementById(String(file - 1) + String(rank - 1)) !== null && document.getElementById(String(file - 1) + String(rank - 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file - 1) + String(rank - 1))}
+            if (document.getElementById(String(file) + String(rank - 1)) !== null && document.getElementById(String(file) + String(rank - 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file) + String(rank - 1))}
+            if (document.getElementById(String(file + 1) + String(rank - 1)) !== null && document.getElementById(String(file + 1) + String(rank - 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file + 1) + String(rank - 1))}
+            if (document.getElementById(String(file + 1) + String(rank)) !== null && document.getElementById(String(file + 1) + String(rank))?.innerHTML[0] !== "w") {availablePlaces.push(String(file + 1) + String(rank))}
+        }
         return availablePlaces;
     }
 }

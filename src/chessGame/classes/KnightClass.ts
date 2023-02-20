@@ -16,11 +16,27 @@ class Knight extends Piece {
         }
     }
     place(rank: number, file: number) {
-        let availablePlaces = new Array();
-        availablePlaces.push({
-            rank: rank,
-            file: file
-        })
+        let availablePlaces = [file.toString() + rank.toString()];
+        if (this.color == "black") {
+            if (document.getElementById(String(file + 2) + String(rank + 1)) !== null && document.getElementById(String(file + 2) + String(rank + 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file + 2) + String(rank + 1))}
+            if (document.getElementById(String(file + 2) + String(rank - 1)) !== null && document.getElementById(String(file + 2) + String(rank - 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file + 2) + String(rank - 1))}
+            if (document.getElementById(String(file - 2) + String(rank + 1)) !== null && document.getElementById(String(file - 2) + String(rank + 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file - 2) + String(rank + 1))}
+            if (document.getElementById(String(file - 2) + String(rank - 1)) !== null && document.getElementById(String(file - 2) + String(rank - 1))?.innerHTML[0] !== "b") {availablePlaces.push(String(file - 2) + String(rank - 1))}
+            if (document.getElementById(String(file + 1) + String(rank + 2)) !== null && document.getElementById(String(file + 1) + String(rank + 2))?.innerHTML[0] !== "b") {availablePlaces.push(String(file + 1) + String(rank + 2))}
+            if (document.getElementById(String(file - 1) + String(rank + 2)) !== null && document.getElementById(String(file - 1) + String(rank + 2))?.innerHTML[0] !== "b") {availablePlaces.push(String(file - 1) + String(rank + 2))}
+            if (document.getElementById(String(file + 1) + String(rank - 2)) !== null && document.getElementById(String(file + 1) + String(rank - 2))?.innerHTML[0] !== "b") {availablePlaces.push(String(file + 1) + String(rank - 2))}
+            if (document.getElementById(String(file - 1) + String(rank - 2)) !== null && document.getElementById(String(file - 1) + String(rank - 2))?.innerHTML[0] !== "b") {availablePlaces.push(String(file - 1) + String(rank - 2))}
+        } else {
+            if (document.getElementById(String(file + 2) + String(rank + 1)) !== null && document.getElementById(String(file + 2) + String(rank + 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file + 2) + String(rank + 1))}
+            if (document.getElementById(String(file + 2) + String(rank - 1)) !== null && document.getElementById(String(file + 2) + String(rank - 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file + 2) + String(rank - 1))}
+            if (document.getElementById(String(file - 2) + String(rank + 1)) !== null && document.getElementById(String(file - 2) + String(rank + 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file - 2) + String(rank + 1))}
+            if (document.getElementById(String(file - 2) + String(rank - 1)) !== null && document.getElementById(String(file - 2) + String(rank - 1))?.innerHTML[0] !== "w") {availablePlaces.push(String(file - 2) + String(rank - 1))}
+            if (document.getElementById(String(file + 1) + String(rank + 2)) !== null && document.getElementById(String(file + 1) + String(rank + 2))?.innerHTML[0] !== "w") {availablePlaces.push(String(file + 1) + String(rank + 2))}
+            if (document.getElementById(String(file - 1) + String(rank + 2)) !== null && document.getElementById(String(file - 1) + String(rank + 2))?.innerHTML[0] !== "w") {availablePlaces.push(String(file - 1) + String(rank + 2))}
+            if (document.getElementById(String(file + 1) + String(rank - 2)) !== null && document.getElementById(String(file + 1) + String(rank - 2))?.innerHTML[0] !== "w") {availablePlaces.push(String(file + 1) + String(rank - 2))}
+            if (document.getElementById(String(file - 1) + String(rank - 2)) !== null && document.getElementById(String(file - 1) + String(rank - 2))?.innerHTML[0] !== "w") {availablePlaces.push(String(file - 1) + String(rank - 2))}
+        }
+        console.log(availablePlaces);
         return availablePlaces;
     }
 }

@@ -1,5 +1,6 @@
-/* eslint-disable */ 
 import Piece from "./Common";
+import { GameStatus } from "../GameStatus";
+import Queen from "./QueenClass";
 
 class Pawn extends Piece {
     isEnpassaint: boolean = false;
@@ -22,7 +23,7 @@ class Pawn extends Piece {
         };
     }
     place(rank: number, file: number) {
-        let availablePlaces = new Array();
+        let availablePlaces = [file.toString() + rank.toString()];
         if(this.color == "white") {
             if(document.getElementById((file - 1).toString() + (rank - 1).toString())?.innerHTML[0] == "b") { availablePlaces.push((file - 1).toString() + (rank - 1).toString()) };
             if(document.getElementById((file - 0).toString() + (rank - 1).toString())?.innerHTML[0] == undefined) { availablePlaces.push((file - 0).toString() + (rank - 1).toString()) };
@@ -34,8 +35,19 @@ class Pawn extends Piece {
             if(document.getElementById((file + 1).toString() + (rank + 1).toString())?.innerHTML[0] == "w") { availablePlaces.push((file + 1).toString() + (rank + 1).toString()) };
             if(this.isMoved == false && document.getElementById(file.toString() + (rank + 2).toString())?.innerHTML[0] == undefined) { availablePlaces.push(file.toString() + (rank + 2).toString())};
         }
-        this.isMoved = true;
         return availablePlaces;
+    }
+    promote(color: string) {
+        this.isTaken = true;
+        let promotedPawn;
+        if(color == "white") { //hard coding. i am not sure how to access to the properthy with variable. ["white"] and ["black"] should be variable like [color].
+            promotedPawn = new Queen("queen", `${this.color[0]}q${GameStatus["pieces"]["white"]["queen"].length + 1}`, this.color, this.file, this.rank);
+            GameStatus["pieces"]["white"]["queen"].push(promotedPawn);
+        } else {
+            promotedPawn = new Queen("queen", `${this.color[0]}q${GameStatus["pieces"]["black"]["queen"].length + 1}`, this.color, this.file, this.rank);
+            GameStatus["pieces"]["black"]["queen"].push(promotedPawn);
+        }
+        GameStatus.board[this.rank][this.file] = promotedPawn;
     }
 }
 

@@ -46,9 +46,15 @@ const Board = () => {
         counterRow++;
     })
     return (
-        <table>
-            {React.createElement("tbody", {}, trs)}
-        </table>
+        <>
+            <table>
+                {React.createElement("tbody", {}, trs)}
+            </table>
+            {
+                (GameStatus.isWhiteTurn)? <h1>white turn</h1> : <h1>black turn</h1>
+            }
+            
+        </>
     )
 }
 
