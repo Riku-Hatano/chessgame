@@ -99,9 +99,3 @@ class Rook extends Piece {
 }
 
 export default Rook;
-
-// constructor(name: string, color: string, isSelected: boolean = false, isChecked: boolean = false, isMoved: boolean = false, isEnpassaint: boolean = false, isPromoted: boolean = false) {
-//     super(name, color, isSelected, isChecked, isMoved)
-//     this.isEnpassaint = isEnpassaint,
-//     this.isPromoted = isPromoted
-// }

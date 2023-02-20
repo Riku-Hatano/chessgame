@@ -10,4 +10,5 @@ export const GameStatus = {
     isClicked: false,
     isWhiteTurn: true,
     isEdit: false,
+    specialFlag: ""
 }

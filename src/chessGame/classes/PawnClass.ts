@@ -25,11 +25,13 @@ class Pawn extends Piece {
     place(rank: number, file: number) {
         let availablePlaces = [file.toString() + rank.toString()];
         if(this.color == "white") {
+            if(this.rank == 1) { GameStatus.specialFlag = "promotion" };
             if(document.getElementById((file - 1).toString() + (rank - 1).toString())?.innerHTML[0] == "b") { availablePlaces.push((file - 1).toString() + (rank - 1).toString()) };
             if(document.getElementById((file - 0).toString() + (rank - 1).toString())?.innerHTML[0] == undefined) { availablePlaces.push((file - 0).toString() + (rank - 1).toString()) };
             if(document.getElementById((file + 1).toString() + (rank - 1).toString())?.innerHTML[0] == "b") { availablePlaces.push((file + 1).toString() + (rank - 1).toString()) };
             if(this.isMoved == false && document.getElementById(file.toString() + (rank + 2).toString())?.innerHTML[0] == undefined) { availablePlaces.push(file.toString() + (rank - 2).toString())};
         } else {
+            if(this.rank == 6) { GameStatus.specialFlag = "promotion" };
             if(document.getElementById((file - 1).toString() + (rank + 1).toString())?.innerHTML[0] == "w") { availablePlaces.push((file - 1).toString() + (rank + 1).toString()) };
             if(document.getElementById((file - 0).toString() + (rank + 1).toString())?.innerHTML[0] == undefined) { availablePlaces.push((file - 0).toString() + (rank + 1).toString()) };
             if(document.getElementById((file + 1).toString() + (rank + 1).toString())?.innerHTML[0] == "w") { availablePlaces.push((file + 1).toString() + (rank + 1).toString()) };
@@ -37,10 +39,10 @@ class Pawn extends Piece {
         }
         return availablePlaces;
     }
-    promote(color: string) {
+    promote() {
         this.isTaken = true;
         let promotedPawn;
-        if(color == "white") { //hard coding. i am not sure how to access to the properthy with variable. ["white"] and ["black"] should be variable like [color].
+        if(this.color == "white") { //hard coding. i am not sure how to access to the properthy with variable. ["white"] and ["black"] should be variable like [color].
             promotedPawn = new Queen("queen", `${this.color[0]}q${GameStatus["pieces"]["white"]["queen"].length + 1}`, this.color, this.file, this.rank);
             GameStatus["pieces"]["white"]["queen"].push(promotedPawn);
         } else {

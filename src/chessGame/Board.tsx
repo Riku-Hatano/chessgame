@@ -1,5 +1,4 @@
 import React from "react";
-import react from "react";
 import { useState } from "react";
 import { GameStatus } from "./GameStatus";
 import ClickHandler from "./Handlers/ClickHandler";

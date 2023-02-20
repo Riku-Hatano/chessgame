@@ -58,9 +58,10 @@ tr:nth-child(odd) td:nth-child(odd):hover {
 }
 
 .red {
-    outline: 5px solid red;
-    outline-offset: -20px;
+    outline: 5px solid firebrick;
+    outline-offset: -5px;
 }
+
 
 
 

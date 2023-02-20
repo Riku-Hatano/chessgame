@@ -1,4 +1,5 @@
 import { GameStatus } from "../GameStatus";
+import SpecialEventHandler from "./SpecialEventHandler";
 
 const PieceMoveHandler = (e: any): void => {
     const movingPiece: any = GameStatus.board[parseInt(GameStatus.availablePlaces[0][1])][parseInt(GameStatus.availablePlaces[0][0])]!; //define the moving piece on the Gamestate.board
@@ -13,11 +14,8 @@ const PieceMoveHandler = (e: any): void => {
                 movingPiece.rank = parseInt(place[1]);
                 const currentBoardHistory: string = JSON.parse(JSON.stringify(GameStatus.board));
                 GameStatus.boardHistory.push(currentBoardHistory); //add the log of board
-                if(movingPiece.name[0] == "p") {
-                    if(movingPiece.rank == 0 || movingPiece.rank == 7) {
-                        movingPiece.promote(movingPiece.color);
-                    } 
-                }
+                SpecialEventHandler(movingPiece); //checking if the castling, promotion will happen
+                GameStatus.specialFlag = "";
                 GameStatus.isWhiteTurn = !GameStatus.isWhiteTurn; //change turn
                 console.log(GameStatus.board)
                 return;
