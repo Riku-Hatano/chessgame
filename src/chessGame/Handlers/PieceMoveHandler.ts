@@ -18,14 +18,15 @@ const PieceMoveHandler = (e: any): void => {
                 GameStatus.specialFlag = "";
                 GameStatus.isWhiteTurn = !GameStatus.isWhiteTurn; //change turn
                 console.log(GameStatus.board)
+                console.log(GameStatus.boardHistory)
                 return;
             } else {
-                console.log("not your turn")
+                // console.log("not your turn")
             }
         }
     }
     
-    console.log("clicked nothing area");
+    // console.log("clicked nothing area");
 }
 
 export default PieceMoveHandler;

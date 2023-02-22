@@ -53,15 +53,15 @@ img {
 
 tr:nth-child(odd) td:nth-child(even),
 tr:nth-child(even) td:nth-child(odd) {
-    background-color: black;
-    color: white;
+    background-color: gray;
+    color: gray;
     text-align: center;
 }
 
 tr:nth-child(even) td:nth-child(even),
 tr:nth-child(odd) td:nth-child(odd) {
-    background-color: white;
-    color: black;
+    background-color: darkolivegreen3;
+    color: darkolivegreen3;
     text-align: center;
 }
 
@@ -70,7 +70,7 @@ tr:nth-child(even) td:nth-child(odd):hover,
 tr:nth-child(even) td:nth-child(even):hover,
 tr:nth-child(odd) td:nth-child(odd):hover {
     background-color: steelblue;
-    color: white;
+    color: steelblue;
 }
 
 .red {

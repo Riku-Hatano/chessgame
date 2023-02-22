@@ -1,5 +1,7 @@
 import React from "react";
-
+import { useState } from "react";
+import { GameStatus } from "./GameStatus";
+import ClickHandler from "./Handlers/ClickHandler";
 import wp from "../imgs/pieces/white/pawn.png";
 import wr from "../imgs/pieces/white/rook.png";
 import wn from "../imgs/pieces/white/knight.png";
@@ -12,10 +14,6 @@ import bn from "../imgs/pieces/black/knight.png";
 import bb from "../imgs/pieces/black/bishop.png";
 import bq from "../imgs/pieces/black/queen.png";
 import bk from "../imgs/pieces/black/king.png";
-
-import { useState } from "react";
-import { GameStatus } from "./GameStatus";
-import ClickHandler from "./Handlers/ClickHandler";
 
 const Board = () => {
     const [gamestatus, setGamestatus] = useState(GameStatus);

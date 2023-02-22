@@ -15,7 +15,7 @@ const ClickHandler = (e: any, gamestatus: any, setGamestatus: react.Dispatch<rea
             GameStatus.availablePlaces = board[rank][file]?.place(rank, file)!;
             BoardColorHandler("add");
         } else {
-            console.log("nothing");
+            // console.log("nothing");
         }
     }
     GameStatus.isClicked = !GameStatus.isClicked;
