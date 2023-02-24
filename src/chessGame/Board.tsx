@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { GameStatus } from "./GameStatus";
 import ClickHandler from "./Handlers/ClickHandler";
+import HistoryHandler from "./Handlers/HistoryHandler";
 import wp from "../imgs/pieces/white/pawn.png";
 import wr from "../imgs/pieces/white/rook.png";
 import wn from "../imgs/pieces/white/knight.png";
@@ -15,14 +16,18 @@ import bb from "../imgs/pieces/black/bishop.png";
 import bq from "../imgs/pieces/black/queen.png";
 import bk from "../imgs/pieces/black/king.png";
 
+HistoryHandler(JSON.parse(JSON.stringify(GameStatus.board)), "add");
+
 const Board = () => {
     const [gamestatus, setGamestatus] = useState(GameStatus);
+    
     const trs: any = [];
     let counterRow = 0;
-    GameStatus.board.forEach((row) => {
+    GameStatus.board.forEach((row: any) => {
+    // GameStatus.boardHistory[GameStatus.boardHistory.length - 1].forEach((row: any) => {
         const tds: any = [];
         let counterCell = 0;
-        row.forEach((cell) => {
+        row.forEach((cell: any) => {
             if(cell != null) {
                 let img: any;
                 switch (cell.shortName[0] + cell.shortName[1]) {
@@ -103,6 +108,10 @@ const Board = () => {
             {
                 (GameStatus.isWhiteTurn)? <h1>white turn</h1> : <h1>black turn</h1>
             }
+            <div>
+                <button onClick={() => HistoryHandler("", "back", setGamestatus, gamestatus)}>back</button>
+                <button onClick={() => HistoryHandler("", "next", setGamestatus, gamestatus)}>next</button>
+            </div>
             
         </>
     )

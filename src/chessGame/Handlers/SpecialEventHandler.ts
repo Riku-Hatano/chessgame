@@ -1,18 +1,21 @@
 import { GameStatus } from "../GameStatus";
 
-const SpecialEventHandler = (movingPiece: any) => {
+const SpecialEventHandler = (movingPiece: any, e:any) => {
     switch(GameStatus.specialFlag) {
         case "":
-            return;
+            break;
         case "castling":
-            console.log("castling");
-            movingPiece.castling();
-            return;
+            console.log(movingPiece);
+            if(movingPiece.file == 6 || movingPiece.file == 2) {
+                movingPiece.castling();
+            }
+            break;
         case "promotion":
             console.log("promotion");
             movingPiece.promote();
-            return;
+            break;
     }
+    GameStatus.specialFlag = "";
 }
 
 export default SpecialEventHandler;
