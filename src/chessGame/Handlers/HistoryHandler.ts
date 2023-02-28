@@ -17,11 +17,15 @@ const HistoryHandler = (newBoardHistory: string, status: string, setGameStatus?:
                 GameStatus.isWhiteTurn = !GameStatus.isWhiteTurn;
                 // GameStatus.availablePlaces = GameStatus.boardHistory[GameStatus.boardHistory.length - 2].availablePlaces;
                 GameStatus.isClicked = false;
+                console.log(GameStatus.boardHistory[GameStatus.boardHistory.length - 2]);
                 GameStatus.boardHistory.pop();
                 setGameStatus({
+                    // ...GameStatus,
+                    // board: GameStatus.board,
+                    // boardHistory: GameStatus.boardHistory,
+                    // isClicked: GameStatus.isClicked
                     GameStatus
                 })
-                console.log(GameStatus.board);
             } else {
                 console.log("cannot back");
             }

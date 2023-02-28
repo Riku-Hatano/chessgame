@@ -2,8 +2,8 @@ import react from "react";
 import { GameStatus } from "../GameStatus";
 import BoardColorHandler from "./BoardColorHandler";
 import PieceMoveHandler from "./PieceMoveHandler";
-const board = GameStatus.board;
-const history = GameStatus.boardHistory;
+// const board = GameStatus.board;
+// const history = GameStatus.boardHistory;
 
 const ClickHandler = (e: any, gamestatus: any, setGamestatus: react.Dispatch<react.SetStateAction<any>>) => {
     BoardColorHandler("remove");
@@ -20,8 +20,7 @@ const ClickHandler = (e: any, gamestatus: any, setGamestatus: react.Dispatch<rea
             // GameStatus.availablePlaces = GameStatus.boardHistory[GameStatus.boardHistory.length - 1][rank][file].place(rank, file)!;
             // console.log(board[rank][file]?.toObj());
             // console.log(board[rank][file]);
-            console.log(GameStatus);
-            GameStatus.availablePlaces = board[rank][file]?.place(rank, file)!;
+            GameStatus.availablePlaces = GameStatus.board[rank][file]?.place(rank, file)!;
             BoardColorHandler("add");
         } else {
             // console.log("nothing");
