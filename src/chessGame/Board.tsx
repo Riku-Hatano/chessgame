@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import * as _ from "lodash";
 import { GameStatus } from "./GameStatus";
 import ClickHandler from "./Handlers/ClickHandler";
 import HistoryHandler from "./Handlers/HistoryHandler";
@@ -16,7 +17,7 @@ import bb from "../imgs/pieces/black/bishop.png";
 import bq from "../imgs/pieces/black/queen.png";
 import bk from "../imgs/pieces/black/king.png";
 
-HistoryHandler(JSON.parse(JSON.stringify(GameStatus.board)), "add");
+HistoryHandler(_.cloneDeep(GameStatus.board) as any, "add");
 
 const Board = () => {
     const [gamestatus, setGamestatus] = useState(GameStatus);

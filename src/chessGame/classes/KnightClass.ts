@@ -37,7 +37,6 @@ class Knight extends Piece {
             if (document.getElementById(String(file + 1) + String(rank - 2)) !== null && document.getElementById(String(file + 1) + String(rank - 2))?.innerHTML[0] !== "w") {availablePlaces.push(String(file + 1) + String(rank - 2))}
             if (document.getElementById(String(file - 1) + String(rank - 2)) !== null && document.getElementById(String(file - 1) + String(rank - 2))?.innerHTML[0] !== "w") {availablePlaces.push(String(file - 1) + String(rank - 2))}
         }
-        console.log(availablePlaces);
         return availablePlaces;
     }
 }
