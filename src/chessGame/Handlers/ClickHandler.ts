@@ -3,7 +3,7 @@ import { GameStatus } from "../GameStatus";
 import BoardColorHandler from "./BoardColorHandler";
 import PieceMoveHandler from "./PieceMoveHandler";
 
-const ClickHandler = (e: any, gamestatus: any, setGamestatus: react.Dispatch<react.SetStateAction<any>>) => {
+const ClickHandler = (e: any, setGamestatus: react.Dispatch<react.SetStateAction<any>>) => {
     BoardColorHandler("remove");
     if(GameStatus.isClicked == true) {
         PieceMoveHandler(e);

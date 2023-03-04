@@ -75,7 +75,7 @@ const Board = () => {
                         id: `${counterCell}${counterRow}`,
                         key: `${counterCell}:${counterRow}`,
                         onClick: (e: any) => {
-                            ClickHandler(e, gamestatus, setGamestatus);
+                            ClickHandler(e, setGamestatus);
                         }
                     },
                     cell.shortName, img
@@ -88,7 +88,7 @@ const Board = () => {
                         id: `${counterCell}${counterRow}`,
                         key: `${counterCell}:${counterRow}`,
                         onClick: (e: any) => {
-                            ClickHandler(e, gamestatus, setGamestatus);
+                            ClickHandler(e, setGamestatus);
                         }
                     },
                     null
@@ -113,7 +113,6 @@ const Board = () => {
                 <button onClick={() => HistoryHandler("", "back", setGamestatus, gamestatus)}>back</button>
                 <button onClick={() => HistoryHandler("", "next", setGamestatus, gamestatus)}>next</button>
             </div>
-            
         </>
     )
 }
