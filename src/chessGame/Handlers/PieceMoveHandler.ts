@@ -19,6 +19,7 @@ const PieceMoveHandler = (e: any): void => {
                 GameStatus.specialFlag = "";
                 GameStatus.isWhiteTurn = !GameStatus.isWhiteTurn; //change turn
                 //JSON.parse(JSON.stringify(something)) is for deep copy, but it doesnt copy method or function.
+                // console.log(GameStatus.boardHistory);
                 HistoryHandler(_.cloneDeep(GameStatus.board) as any, "add"); //add the log of board
                 //maybe because of json.parse and stringify, the instance of class would be turned to just an object. so, i cannot use method inside of each piece.
                 return;
