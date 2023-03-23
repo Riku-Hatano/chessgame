@@ -24,6 +24,7 @@ const PieceMoveHandler = (e: any): void => {
                 // console.log(GameStatus.boardHistory[0])
                 HistoryHandler(_.cloneDeep(GameStatus.board) as any, "add"); //add the log of board
                 //maybe because of json.parse and stringify, the instance of class would be turned to just an object. so, i cannot use method inside of each piece.
+                //for deploy
                 return;
             } else {
                 // console.log("not your turn")
