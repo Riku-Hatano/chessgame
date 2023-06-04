@@ -6,7 +6,9 @@ import PieceMoveHandler from "./PieceMoveHandler";
 const ClickHandler = (e: any, setGamestatus: react.Dispatch<react.SetStateAction<any>>) => {
     BoardColorHandler("remove");
     if(GameStatus.isClicked == true) {
+        console.log(GameStatus.boardHistory);
         PieceMoveHandler(e);
+        console.log(GameStatus.boardHistory);
         GameStatus.specialFlag = "";
     } else {
         if(e.target.innerHTML != "" && e.target.innerHTML != null && e.target.innerHTML != undefined) {
@@ -20,8 +22,15 @@ const ClickHandler = (e: any, setGamestatus: react.Dispatch<react.SetStateAction
     }
     GameStatus.isClicked = !GameStatus.isClicked;
     setGamestatus({
-        GameStatus
+       GameStatus
     })
+    // setGamestatus({
+    //     board: GameStatus.board,
+    //     boardHistory: GameStatus.boardHistory,
+    //     specialFlag: GameStatus.specialFlag,
+    //     isClicked: GameStatus.isClicked,
+    //     availablePlaces: GameStatus.availablePlaces
+    // })
 }
 
 export default ClickHandler;

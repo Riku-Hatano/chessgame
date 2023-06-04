@@ -1,40 +1,43 @@
 import { GameStatus } from "../GameStatus";
-import { initialBoard } from "../InitialStatus";
 import react from "react";
-// import { setOriginalNode } from "typescript";
 import * as _ from "lodash";
 
-const HistoryHandler = (newBoardHistory: string, status: string, setGameStatus?: react.Dispatch<react.SetStateAction<any>>, gamestatus?: any) => {
+const HistoryHandler = (newBoardHistory: string, status: string, setGameStatus?: react.Dispatch<react.SetStateAction<any>>) => {
     switch(status) {
         case "add":
-            // const tmpArr = _.cloneDeep(GameStatus.boardHistory);
-            // tmpArr.push(newBoardHistory);
-            // console.log(tmpArr)
-            // GameStatus.boardHistory = tmpArr;
+            GameStatus.boardHistory.splice(GameStatus.boardHistory.length - GameStatus.historyBackCounter, GameStatus.historyBackCounter);
+            GameStatus.boardHistory.push(newBoardHistory);
+            GameStatus.historyBackCounter = 0;
+
             
-            GameStatus.boardHistory[GameStatus.boardHistory.length] = newBoardHistory;
-            // GameStatus.boardHistory = [...GameStatus.boardHistory, newBoardHistory];
             break;
         case "back": 
             if(setGameStatus != null && setGameStatus != undefined && GameStatus.boardHistory.length > 1) {
-                // const tmpArr = _.cloneDeep(GameStatus.boardHistory);
-                // tmpArr.pop();
-                // GameStatus.boardHistory = tmpArr;
-                GameStatus.boardHistory.pop();
-                GameStatus.board = GameStatus.boardHistory[GameStatus.boardHistory.length - 1];
-                // console.log(GameStatus.boardHistory[GameStatus.boardHistory.length - 1])
-                GameStatus.isWhiteTurn = !GameStatus.isWhiteTurn;
-                GameStatus.isClicked = false;
-                setGameStatus({
-                    GameStatus
-                })
-                console.log(GameStatus.boardHistory);
+                if(GameStatus.boardHistory.length - GameStatus.historyBackCounter > 1) {
+                    GameStatus.historyBackCounter++;
+                    GameStatus.board = GameStatus.boardHistory[GameStatus.boardHistory.length - 1 - GameStatus.historyBackCounter];
+                    GameStatus.isWhiteTurn = !GameStatus.isWhiteTurn;
+                    GameStatus.isClicked = false;
+                    setGameStatus({
+                        ...GameStatus,
+                    })
+                }
             } else {
                 console.log("cannot go back");
             }
             break;
         case "next":
-            console.log("next")
+            if(setGameStatus != null && setGameStatus != undefined && GameStatus.boardHistory.length > 1) {
+                if(GameStatus.historyBackCounter > 0) {
+                    GameStatus.historyBackCounter--;
+                    GameStatus.board = GameStatus.boardHistory[GameStatus.boardHistory.length - 1 - GameStatus.historyBackCounter];
+                    GameStatus.isWhiteTurn = !GameStatus.isWhiteTurn;
+                    GameStatus.isClicked = false;
+                    setGameStatus({
+                        ...GameStatus,
+                    })
+                }
+            }
             break;
     }
     console.log(GameStatus.boardHistory)

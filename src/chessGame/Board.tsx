@@ -110,8 +110,8 @@ const Board = () => {
                 (GameStatus.isWhiteTurn)? <h1>white turn</h1> : <h1>black turn</h1>
             }
             <div>
-                <button onClick={() => HistoryHandler("", "back", setGamestatus, gamestatus)}>back</button>
-                <button onClick={() => HistoryHandler("", "next", setGamestatus, gamestatus)}>next</button>
+                <button onClick={() => HistoryHandler("", "back", setGamestatus)}>back</button>
+                <button onClick={() => HistoryHandler("", "next", setGamestatus)}>next</button>
             </div>
         </>
     )
