@@ -17,7 +17,7 @@ class Queen extends Piece {
             isChecked: this.isChecked,
             isMoved: this.isMoved,
             isTaken: this.isTaken,
-            wasPawan: this.wasPawn
+            wasPawn: this.wasPawn
         }
     }
     place(rank: number, file: number) {

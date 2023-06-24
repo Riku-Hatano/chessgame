@@ -1,7 +1,8 @@
 import { initialPieces } from "./InitialStatus";
 import { initialBoard } from "./InitialStatus";
+import { GameStatusIF } from "../types/types";
 
-export const GameStatus = {
+export const GameStatus: GameStatusIF = {
     pieces: initialPieces,
     board: initialBoard,
     boardHistory: new Array(),
