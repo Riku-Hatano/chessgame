@@ -1,7 +1,7 @@
 export interface GameStatusIF {
     pieces: InitialPieces,
     board: any | null[][]
-    // board: InitialPieces[][] | null[][]
+    board: InitialPieces[][] | null[][]
     boardHistory: any,
     historyBackCounter: number,
     availablePlaces: any,
