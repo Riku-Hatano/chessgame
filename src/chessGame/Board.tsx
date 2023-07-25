@@ -24,7 +24,7 @@ const Board = () => {
     
     const trs: any = [];
     let counterRow = 0;
-    console.log(GameStatus.board);
+    // console.log(GameStatus.board);
     GameStatus.board.forEach((row: any) => {
     // GameStatus.boardHistory[GameStatus.boardHistory.length - 1].forEach((row: any) => {
         const tds: any = [];

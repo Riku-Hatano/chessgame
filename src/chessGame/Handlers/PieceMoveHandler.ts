@@ -19,7 +19,7 @@ const PieceMoveHandler = (e: any): void => {
                 GameStatus.specialFlag = "";
                 GameStatus.isWhiteTurn = !GameStatus.isWhiteTurn; //change turn
                 
-                HistoryHandler(_.cloneDeep(GameStatus.board) as any, "add"); //add the log of board
+                HistoryHandler(_.cloneDeep(GameStatus.board), "add"); //add the log of board
                 return;
             } else {
                 // console.log("not your turn")

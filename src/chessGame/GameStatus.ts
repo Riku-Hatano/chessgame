@@ -5,7 +5,7 @@ import { GameStatusIF } from "../types/types";
 export const GameStatus: GameStatusIF = {
     pieces: initialPieces,
     board: initialBoard,
-    boardHistory: new Array(),
+    boardHistory: [],
     historyBackCounter: 0,
     availablePlaces: new Array(),
     isClicked: false,
